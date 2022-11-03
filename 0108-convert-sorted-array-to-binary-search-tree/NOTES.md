@@ -1,3 +1,5 @@
+![image](https://assets.leetcode.com/users/images/9b668608-b437-47d4-8816-8dfe9dbdd318_1660126464.7137046.png)
+​
 ```
 TreeNode* helper(int low, int high, vector<int>& nums) {
 // if at any stage low exceeds high then it is out of bound so return
