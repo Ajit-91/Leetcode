@@ -12,6 +12,6 @@ public:
             i++;
             temp /= 10;
         }
-        return num + pow(10, sixIndex) * 3;
+        return sixIndex == -1 ? num : num + pow(10, sixIndex) * 3;
     }
 };
