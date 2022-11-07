@@ -25,3 +25,10 @@ n /= 10;
 return ans;
 }
 ```
+​
+Method 2 : Optimal
+​
+* find first ocuurence index of 6 from left of number
+*  then do
+*  num = num + 3 * 10^index
+*  return num;
