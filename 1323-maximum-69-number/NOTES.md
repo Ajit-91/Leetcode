@@ -32,3 +32,6 @@ Method 2 : Optimal
 *  then do
 *  num = num + 3 * 10^index
 *  return num;
+​
+​
+![](https://leetcode.com/problems/maximum-69-number/Figures/1323/1323-3.png)
