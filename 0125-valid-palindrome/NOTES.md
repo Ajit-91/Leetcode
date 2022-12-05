@@ -1,8 +1,29 @@
-* Filter the alphanumeric characters from given string
+return false;
+}
+}
+return true;
+}
+```
 ​
-(ascii >= 48 && ascii <= 57)  // Numerals 0-9
-(ascii >= 65 && ascii <= 90) // upercase A-Z
-(ascii >= 97 && ascii <= 122) // lowercase a-z
+# Method 2 :
+* Skip non alphanumeric chars from sttart and from end
+* compare first alphaNum char with last alphaNum char... similarly 2nd alphaNum with 2nd last alphaNum
 ​
-* Check the newly obtained string if it is pallindrome or not
-​
+```
+bool isPalindrome(string s) {
+// take left and right pointers i and j
+int i = 0; int j = s.size()-1;
+while(i < j){
+// skip non alphanumeric chars from left
+while((!isalnum(s[i])) && i < j) i++;
+// skip non alphanumeric chars from right
+while((!isalnum(s[j])) && i < j) j--;
+// Now both left and right arealphanumeric
+// So, after case conversion they're not equal => not pallindrome
+if(toupper(s[i]) != toupper(s[j])) return false;
+i++;
+j--;
+}
+return true;
+}
+```
