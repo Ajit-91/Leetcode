@@ -9,20 +9,25 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        unordered_map<ListNode*, int> mp;
-        // store addresses of nodes of first list
-        while(headA){
-            mp[headA]++;
-            headA = headA->next;
+        ListNode* a = headA;
+        ListNode* b = headB;
+
+        while(a != b){
+            a = a->next;
+            b = b->next;
+            // if b reaches end move it to list A head
+            if(a && !b){
+                b = headA;
+            }
+            // if a reaches end move it to list B head
+            if(b && !a){
+                a = headB;
+            }
+            // After doing this the gap between two lists is covered 
+            // distance from current a to tail(A) equals distance from current b to tail(B)
         }
 
-        while(headB){
-            // if same address is encountered in 2nd list => intersection point
-            if(mp.count(headB) > 0){
-                return headB;
-            }
-            headB = headB->next;
-        }
-        return NULL;
+        // here a == b => a can be intersection point or null
+        return a;
     }
 };
