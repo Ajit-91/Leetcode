@@ -13,12 +13,13 @@ public:
         // Write Your Code here
         vector<long long> ans;
         int i = 1;
-        long long temp = 1;
-        while(temp <= N)
+        long long fact = 1;
+        while(fact <= N)
         {
-            ans.push_back(temp);
+            ans.push_back(fact);
             i++;
-            temp *= i;
+            // calculating next factorial
+            fact *= i;
         }
         return ans;
     }
