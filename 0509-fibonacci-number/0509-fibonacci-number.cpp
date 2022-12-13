@@ -7,9 +7,8 @@ public:
         
         for(int i = 2; i <= n; i++){
             c = a + b;
-            int temp = b;
+            a = b;
             b = c;
-            a = temp;
         }
         return c;
     }
