@@ -1,16 +1,16 @@
 class Solution {
-    vector<int> fibo;
-
 public:
-    Solution(){
-        fibo.assign(31, 0);
-        fibo[0] = 0;
-        fibo[1] = 1;
-        for(int i = 2; i <= 30; i++){
-            fibo[i] = fibo[i-1] + fibo[i-2];
-        }
-    }
     int fib(int n) {
-        return fibo[n];
+        if(n < 2) return n;
+        int a = 0, b = 1;
+        int c = 0;
+        
+        for(int i = 2; i <= n; i++){
+            c = a + b;
+            int temp = b;
+            b = c;
+            a = temp;
+        }
+        return c;
     }
 };
