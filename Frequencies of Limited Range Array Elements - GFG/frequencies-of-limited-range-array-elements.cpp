@@ -8,18 +8,67 @@ class Solution{
     //Function to count the frequency of all elements from 1 to N in the array.
     void frequencyCount(vector<int>& arr,int N, int P)
     { 
-        // code here
-        vector<int> ans(N, 0);
+        // Approach 1 : Using extra space
+        
+        // vector<int> ans(N, 0);
+        // for(int elm : arr)
+        // {
+        //     if(elm-1 < N)
+        //     {
+        //         ans[elm - 1]++;
+        //     }
+        // }
+        // for(int i = 0; i < N; i++)
+        // {
+        //     arr[i] = ans[i];
+        // }
+        
+        // Optimal approach : concept is to store two numbers at same memory location
+        /*
+            Trick to store two numsbers at one location
+            => transform the number such that both numbers can be derived from it
+            
+            eg store a = 3 and b = 4 in just one var or location
+            take integer n such that n > max(a, b) i.e n > both a and b
+            
+            let n = 6
+            
+            now to store both and b we will use var a only
+            
+            so, transform a as follows : 
+            
+            Ta = transformed a
+            Oa = original a
+
+            a = a + b*n
+            Ta = Oa + Ob*n
+            here , a = 3 + 4*6 = 27
+            
+        Main formula : 
+        -------------------------------
+            now, original a = transformed a % n
+            and, b = a / n
+        --------------------------------  
+        
+        here original a = 27 % 6 = 3
+        and, b = 27 / 6 = 4
+            
+        */
+        
+        int n = P+1;
         for(int elm : arr)
         {
-            if(elm-1 < N)
-            {
-                ans[elm - 1]++;
-            }
+            int index = elm % n - 1; // originalElm - 1
+            if(index >= N) continue;
+            
+            int modifiedA = arr[index];
+            int b = modifiedA / n;
+            int originalA = modifiedA % n;
+            arr[index] = originalA + (b+1)*n;
         }
-        for(int i = 0; i < N; i++)
+        for(int& elm : arr)
         {
-            arr[i] = ans[i];
+            elm /= n;
         }
     }
 };
