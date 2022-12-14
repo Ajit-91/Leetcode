@@ -62,12 +62,13 @@ class Solution{
             if(index >= N) continue;
             
             int modifiedA = arr[index];
-            int b = modifiedA / n;
+            int b = modifiedA / n; // b is the frequency of elment a
             int originalA = modifiedA % n;
             arr[index] = originalA + (b+1)*n;
         }
         for(int& elm : arr)
         {
+            // this would give b i.e freq of each element
             elm /= n;
         }
     }
