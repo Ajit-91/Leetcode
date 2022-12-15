@@ -25,9 +25,9 @@ class Solution
     void bubbleSort(int arr[], int n)
     {
         // Your code here
-        for(int rounds = 1; rounds <= n-1; rounds++)
+        for(int rounds = 0; rounds < n-1; rounds++)
         {
-            for(int i = 0; i <= n-1-rounds; i++)
+            for(int i = 0; i < n-1-rounds; i++)
             {
                 if(arr[i] > arr[i+1])
                 {
