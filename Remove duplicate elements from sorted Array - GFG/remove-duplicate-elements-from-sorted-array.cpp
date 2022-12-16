@@ -11,19 +11,17 @@ using namespace std;
 class Solution{
 public:
     int remove_duplicate(int arr[],int n){
-        // code here
-        map<int, int> freq;
-        for(int i = 0; i < n; i++)
-        {
-            freq[arr[i]]++;
-        }
-        int count = 0;
-        for(auto tuple : freq)
-        {
-            // cout<<tuple.first<<" -> "<<tuple.second<<endl;
-            arr[count++] = tuple.first;
-        }
-        return count;
+       // i is catcher and j is thrower
+       // that's why i starts from 0 and j starts from 1
+       // j moves forward until new element(distinct) is not found (i.e Throws new element)
+       // when new element is found by j , i increments and copies the arr[j] (i.e catches new elm)
+       int i = 0;
+       for(int j = 1; j < n; j++){
+           if(arr[i] != arr[j]){
+               arr[++i] = arr[j];
+           }
+       }
+       return i+1;
     }
 };
 
