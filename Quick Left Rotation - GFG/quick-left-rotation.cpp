@@ -12,21 +12,21 @@ class Solution{
 	   // Your code goes here
 	   k = k % n;
 	   if(k == 0) return;
-	   int temp [n];
-	   int j = 0;
+	   int temp [k];
+	   // copy first k elements in temp
+	   for(int  i = 0; i < k; i++)
+	   {
+	       temp[i] = arr[i];
+	   }
+	   // shift(here left) elements by k in original arr
 	   for(int i = k; i < n; i++)
 	   {
-	       temp[j] = arr[i];
-	       j++;
+	       arr[i-k] = arr[i];
 	   }
+	   // copy contents of temp into original arr
 	   for(int i = 0; i < k; i++)
 	   {
-	       temp[j] = arr[i];
-	       j++;
-	   }
-	   for(int i = 0; i < n; i++)
-	   {
-	       arr[i] = temp[i];
+	       arr[n-k+i] = temp[i];
 	   }
 	} 
 		 
