@@ -5,13 +5,11 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
 	
-	void reverseArray(int arr[], int n)
+	void reverseArray(int arr[], int start, int end)
 	{
-	    int start = 0;
-	    int end = n - 1;
 	    while(start < end)
 	    {
-	        swap(arr[start++], arr[end++]);
+	        swap(arr[start++], arr[end--]);
 	    }
 	}
 	public:
@@ -42,13 +40,14 @@ class Solution{
 	   //-------Approach : 2-----------------------------
 	   k = k % n;
 	   if(k == 0) return;
-	   //reverseArray(arr, k);
-	   //reverseArray(arr+k, n-k);
-	   //reverseArray(arr, n);
-	   reverse(arr, arr+k);
-	   reverse(arr+k, arr+n);
-	   reverse(arr, arr+n);
+	   reverseArray(arr, 0, k-1);
+	   reverseArray(arr, k, n-1);
+	   reverseArray(arr, 0, n-1);
 	   
+	   // Or by using inbuilt reverse 
+	   //reverse(arr, arr+k);
+	   //reverse(arr+k, arr+n);
+	   //reverse(arr, arr+n);
 	} 
 		 
 
