@@ -10,21 +10,25 @@ public:
 	void pushZerosToEnd(int arr[], int n) 
 	{
 	    // code here
-	    int i = 0;
-	    for(i; i < n; i++)
-	    {
-	        if(arr[i] == 0) break;
-	    }
-	    int j = i+1;
-	    while(i < n && j < n)
-	    {
-	        if(arr[j] != 0)
-	        {
-	            swap(arr[i], arr[j]);
-	            i++;
-	        }
-	        j++;
-	    }
+	   int i = 0, j = 0;
+        
+        while (i < n && j < n)
+        {
+            if (arr[i] != 0)
+            {
+                i++;
+                j++;
+            }
+            else if (arr[j] != 0 && arr[i] == 0)
+            {
+                swap(arr[j], arr[i]);
+                i++;
+            }
+            else
+            {
+                j++;
+            }
+        }
 	}
 };
 
