@@ -11,21 +11,25 @@ public:
 	{
 	    // code here
 	   int i = 0, j = 0;
-        
+        // i ensures that all elements before i are non zero
+        // j finds the non zero to be swapped with ith element 
         while (i < n && j < n)
         {
             if (arr[i] != 0)
             {
+                // everything is ok move on
                 i++;
                 j++;
             }
             else if (arr[j] != 0 && arr[i] == 0)
             {
+                // favourable condition for swapping
                 swap(arr[j], arr[i]);
                 i++;
             }
             else
             {
+                // ith elem is 0 and still finding for non zero so incrementj
                 j++;
             }
         }
