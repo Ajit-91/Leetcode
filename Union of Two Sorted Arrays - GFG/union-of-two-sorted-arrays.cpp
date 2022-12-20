@@ -13,11 +13,69 @@ class Solution{
     {
         //Your code here
         //return vector with correct order of elements
-        set<int> st;
+        
+        //---------------Approach 1---------------------
+        // set<int> st;
+        // vector<int> ans;
+        // for(int i = 0; i < n; i++) st.insert(arr1[i]);
+        // for(int i = 0; i < m; i++) st.insert(arr2[i]);
+        // for(int elm : st) ans.push_back(elm);
+        // return ans;
+        
+        //--------------Approach 2-----------------------
         vector<int> ans;
-        for(int i = 0; i < n; i++) st.insert(arr1[i]);
-        for(int i = 0; i < m; i++) st.insert(arr2[i]);
-        for(int elm : st) ans.push_back(elm);
+        int i = 0, j = 0;
+        int temp = -1;
+        while(i < n && j < m)
+        {
+            if(arr1[i] < arr2[j])
+            {
+                if(arr1[i] != temp)
+                {
+                    ans.push_back(arr1[i]);
+                    temp = arr1[i];
+                }
+                i++;
+            }
+            else if(arr1[i] > arr2[j])
+            {
+                if(arr2[j] != temp)
+                {
+                    ans.push_back(arr2[j]);
+                    temp = arr2[j];
+                }
+                j++;
+                
+            }
+            else if(arr1[i] == arr2[j])
+            {
+                if(arr1[i] != temp)
+                {
+                    ans.push_back(arr1[i]);
+                    temp = arr1[i];
+                }
+                i++;
+                j++;
+            }
+        }
+        while(i < n)
+        {
+            if(arr1[i] != temp)
+            {
+                ans.push_back(arr1[i]);
+                temp = arr1[i];
+            }
+            i++;
+        }
+        while(j < m)
+        {
+            if(arr2[j] != temp)
+            {
+                ans.push_back(arr2[j]);
+                temp = arr2[j];
+            }
+            j++;
+        }
         return ans;
     }
 };
