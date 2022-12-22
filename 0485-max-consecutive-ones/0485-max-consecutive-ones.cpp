@@ -8,7 +8,6 @@ public:
                 noOfOnes++;
             }
             else{
-                // ans = max(ans, noOfOnes);
                 noOfOnes = 0;
             }
             ans = max(ans, noOfOnes);
