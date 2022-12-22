@@ -6,12 +6,12 @@ public:
         for(int num : nums){
             if(num == 1){
                 noOfOnes++;
-                ans = max(ans, noOfOnes);
             }
             else{
-                ans = max(ans, noOfOnes);
+                // ans = max(ans, noOfOnes);
                 noOfOnes = 0;
             }
+            ans = max(ans, noOfOnes);
         }
         return ans;
     }
