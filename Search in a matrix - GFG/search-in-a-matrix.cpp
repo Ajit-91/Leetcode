@@ -9,14 +9,17 @@ class Solution{
 public:	
 	int matSearch (vector <vector <int>> &mat, int N, int M, int X)
 	{
-	    // your code here
+	   //------ Binary search------------------
+	   // Useful when first element of a row is greater than last element of previous row
+	   
 	   // int size = M*N;
 	   // int low = 0;
 	   // int high = size-1;
 	   // while(low <= high)
 	   // {
-	   //     int i = low / M;
-	   //     int j = low % M;
+	   //     int middle = low + (high-low)/2;
+	   //     int i = middle / M;
+	   //     int j = middle % M;
 	   //     if(mat[i][j] == X) return 1;
 	   //     else if(mat[i][j] < X) low++;
 	   //     else high--;
@@ -25,7 +28,7 @@ public:
 	   
 	   int i = 0;
 	   int j = M-1; // rightmost corner
-	   while(i < N && j < M)
+	   while(i < N && j >= 0)
 	   {
 	       if(mat[i][j] == X) return 1;
 	       else if(mat[i][j] < X) i++; // X must be in next row
