@@ -24,12 +24,12 @@ public:
 	   // return 0;
 	   
 	   int i = 0;
-	   int j = M-1;
+	   int j = M-1; // rightmost corner
 	   while(i < N && j < M)
 	   {
 	       if(mat[i][j] == X) return 1;
-	       else if(mat[i][j] < X) i++;
-	       else if(mat[i][j] > X) j--;
+	       else if(mat[i][j] < X) i++; // X must be in next row
+	       else if(mat[i][j] > X) j--; // X must be in previous col
 	   }
 	   return 0;
 	}
